@@ -1,0 +1,85 @@
+class Human:
+
+
+    def __init__(self, name):
+        self.name = name
+        self.food = 100
+        self.money = 0
+        self.fullness = 25
+        self.power = 100
+
+    def to_eat(self):
+        if self.food >= 10:
+            print('{} поел'.format(self.name))
+            self.fullness += 20
+            self.food -= 10
+        else:
+            print('{} нет еды'.format(self.name))
+        self.power -= 5
+    def work(self):
+        print('{} сходил на работу'.format(self.name))
+        self.money += 25
+        self.power -= 25
+        self.fullness -= 10
+
+    def  watch_MTV(self):
+        print('{} смотрел MTV целый день'.format(self.name))
+        self.fullness -= 5
+        self.power += 25
+
+    def shopping(self):
+        if self.money >= 25:
+            print('{} сходил в магазин за едой'.format(self.name))
+            self.money -= 25
+            self.food += 25
+            self.power -= 5
+        else:
+            print('{} денеги кончились'.format(self.name))
+
+    def walk(self):
+        luck = randint(1,38)
+        print('{} гулял весь день'.format(self.name))
+        self.fullness -= 15
+        if luck == 37 or luck ==21:
+            print('{} нашел деньги'.format(self.name))
+            self.money += 15
+        elif luck == 7:
+            print('{} угостили едой'.format(self.name))
+            self.fullness += 25
+        elif luck == 13:
+            print('{} ограбили и побили'.format(self.name))
+            self.money -= 10
+            self.power -= 15
+        self.power += 5
+
+    def act(self):
+        dice = randint(1, 5)
+        if dice == 1:
+            if self.power <= 0:
+                print('{} нет сил'.format(self.name))
+            else:
+                self.work()
+        elif dice == 2:
+            self.shopping()
+        elif dice == 3:
+            self.walk()
+        elif dice == 4:
+            self.watch_MTV()
+        elif dice == 5:
+            self.to_eat()
+
+    def __str__(self):
+        return 'еды осталось {}, денег осталось {}, силы осталось {}, сытости осталось {} '.format(
+            self.food, self.money, self.power, self.fullness)
+
+
+peep = Human(name='Вася')
+i = 1
+while peep.fullness >= 0:
+    print('================ ДЕНЬ {} =================='.format(i))
+    i += 1
+    peep.act()
+    print(peep)
+    print('--------------- КОНЕЦ ДНЯ ------------------')
+else:
+    print('{} умер...'.format(peep.name))
