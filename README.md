@@ -23,3 +23,5 @@ About me
 Language and Tools
 
 Follow Me
+
+![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Aftenius&theme=aura_dark)
