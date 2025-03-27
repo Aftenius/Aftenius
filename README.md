@@ -1,4 +1,4 @@
-# Hi there! 👋 I'm [Your Name]
+# Hi there! 👋 I'm Timofey
 
 ## 🚀 About Me
 [A brief introduction about yourself, your interests, and professional background]
